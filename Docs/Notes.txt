@@ -1,0 +1,132 @@
+===================================================================================================
+                                     OVERVIEW OF SOLUTION HEIRARCHY
+===================================================================================================
+Command Line Interface
+	Tools used to process and manage data under the new InformediaCORE+SQLServer model.
+
+Docs
+	Various documentation including this file.
+
+Graphical Interface
+	Tools with a GUI
+
+InformediaCORE.Azure
+	Classes specific to interacting with Azure services.
+
+InformediaCORE.Common
+	Classes encapsulating functionality common to all aspects of data
+	conversion, ingest, digest, export, and framework.
+
+InformediaCORE.Processing
+	Data processing specific classes.
+
+InformediaCORE.Schema
+	Scripted SQL Server schema DDL, nicely formatted with comments.
+
+===================================================================================================
+                                       External Dependencies
+===================================================================================================
+InformediaCORE.Common
+	FFmpeg								- https://www.ffmpeg.org/
+
+InformediaCORE.Processing
+	Gentle Forced Aligner				- http://lowerquality.com/gentle/
+	SpaCy								- https://spacy.io/
+	Python 3.8.x						- https://www.python.org/
+	Stanford NER						- https://nlp.stanford.edu/software/CRF-NER.html
+	JAVA 8								- https://adoptopenjdk.net/
+
+===================================================================================================
+                           Deploying a SQL Server Schema From the Command Line
+===================================================================================================
+Data Source=.\SQLExpress;Initial Catalog=InformediaCORE;Integrated Security=True
+
+VSDBCMD /a:Deploy /cs:"Data Source=.\SQLExpress;Integrated Security=True;Pooling=False" /dsp:SQL 
+		/DeployToDatabase  /p:TargetDatabase="InformediaCORE" 
+		/model:..\Schema\InformediaCORE.Schema.dbschema 
+
+
+===================================================================================================
+                                    Making C# Classes From XSD Files
+===================================================================================================
+How to make InformediaCORE.Common.Xml\XmlFoo.cs class files
+
+* Create new XSD file.
+* Write XSD defining data structure.
+* Open Visual Studio Command Prompt.
+* CD to directory containg the .XSD file.
+* Run:
+	>xsd.exe XmlFoo.xsd /classes /namespace:InformediaCORE.Common.XML
+
+NOTE: PREFERRED METHOD INVOLVES XSD2CODE
+----------------------------------------
+Using Xsd2Code to auto-generate the C# classes to back the XML schema files.
+See: https://marketplace.visualstudio.com/items?itemName=Cestbienmoi.Xsd2Code2015
+OLD: http://xsd2code.codeplex.com/ (included for historical reference)
+
+===================================================================================================
+                                     The Import/Export Process
+===================================================================================================
+These XML entities must be imported in the specified order or constraints will be violated and the
+import will fail.
+----------------------------
+1. AnnotationTypes				One file per AnnotationType (may need to consolidate into one file.)
+
+2. Worlds                       One file will define one world with all related partitions.
+     Partitions
+        
+3. Collections                  One file will define one collection, and all related annotations and sessions.     
+     Exception 
+     Sessions
+	 Annotations
+	 Partitions
+	              
+4. Movies                       One file will define one movie and all related annotations and segments.
+     Annotations
+     Segments                   Each segment includes all related segment-annotations.
+       Annotations
+
+
+Generated Data Exempted from Import/Export
+------------------------------------------
+- NamedEntities
+- Semaphores
+- Tasks
+- TaskStates
+
+
+===================================================================================================
+                                 Optimizing Linq Queries for Indexing
+===================================================================================================
+TIME	METHOD
+5:17	Iterate over a list of SegmentIDs (Method 1)
+4:51	Iterate over a list of Segments   (Method 2)
+3:43	Method 1 using IndexableSegments view in lieu of Segments table
+1:24	Method 2 using IndexableSegments view in lieu of Segments table (!!WINNER!!)
+
+METHOD 1
+--------
+var list = (from s in context.Segments 
+            select s.SegmentID).toList<int>(); 
+
+ForEach(var id in list) { 
+	segment = (from s in context.Segments select s).FirstOrDefault();
+
+	// ...process segment
+    // segment.Movie.CollectionID
+	// CleanedMonthYearFormat(segment.Movie.Session.InterviewDate));
+	// ...
+}
+
+METHOD 2
+--------
+var segments = (from s in context.Segments select s);
+
+ForEach(segment in segments) { 
+	segment = (from s in context.Segments select s).FirstOrDefault();
+
+	// ...process segment
+    // segment.Movie.CollectionID
+	// CleanedMonthYearFormat(segment.Movie.Session.InterviewDate));
+	// ...
+}              

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+  targetNamespace="urn:schemas-idvl-org:xml-annotation"
+  xmlns="urn:schemas-idvl-org:xml-annotation"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  attributeFormDefault="qualified"
+  elementFormDefault="qualified"
+>
+  <xs:complexType name="XmlAnnotation">
+    <xs:all>
+      <xs:element name="Type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="32"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Value">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="1024"/>
+          </xs:restriction>
+        </xs:simpleType>      
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+</xs:schema>

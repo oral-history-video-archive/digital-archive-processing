@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DigitalArchiveSubset" Class="IDVLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=dvl-test-srv;Initial Catalog=DigitalArchiveSubset;Integrated Security=True" SettingsObjectName="InformediaCORE.Common.Properties.Settings" SettingsPropertyName="DigitalArchiveSubsetConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="idvl.Annotations" Member="Annotations">
+    <Type Name="Annotation">
+      <Column Name="AnnotationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CollectionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MovieID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SegmentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Association Name="AnnotationType_Annotation" Member="AnnotationType" ThisKey="TypeID" OtherKey="TypeID" Type="AnnotationType" IsForeignKey="true" />
+      <Association Name="Movie_Annotation" Member="Movie" ThisKey="MovieID" OtherKey="MovieID" Type="Movie" IsForeignKey="true" />
+      <Association Name="Segment_Annotation" Member="Segment" ThisKey="SegmentID" OtherKey="SegmentID" Type="Segment" IsForeignKey="true" />
+      <Association Name="Collection_Annotation" Member="Collection" ThisKey="CollectionID" OtherKey="CollectionID" Type="Collection" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="idvl.Worlds" Member="Worlds">
+    <Type Name="World">
+      <Column Name="WorldID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(64) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Association Name="World_Partition" Member="Partitions" ThisKey="WorldID" OtherKey="WorldID" Type="Partition" />
+    </Type>
+  </Table>
+  <Table Name="idvl.AnnotationTypes" Member="AnnotationTypes">
+    <Type Name="AnnotationType">
+      <Column Name="TypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(32) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Scope" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(128) NOT NULL" CanBeNull="false" />
+      <Association Name="AnnotationType_Annotation" Member="Annotations" ThisKey="TypeID" OtherKey="TypeID" Type="Annotation" />
+    </Type>
+  </Table>
+  <Table Name="idvl.Movies" Member="Movies">
+    <Type Name="Movie">
+      <Column Name="MovieID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MovieName" Type="System.String" DbType="VarChar(64) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CollectionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SessionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Abstract" Type="System.String" DbType="VarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="[Tape]" Member="Tape" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MediaPath" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="FileType" Type="System.String" DbType="VarChar(16) NOT NULL" CanBeNull="false" />
+      <Column Name="Duration" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Width" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Height" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FPS" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="Modified" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Association Name="Movie_Annotation" Member="Annotations" ThisKey="MovieID" OtherKey="MovieID" Type="Annotation" />
+      <Association Name="Movie_Segment" Member="Segments" ThisKey="MovieID" OtherKey="MovieID" Type="Segment" />
+      <Association Name="Collection_Movie" Member="Collection" ThisKey="CollectionID" OtherKey="CollectionID" Type="Collection" IsForeignKey="true" />
+      <Association Name="Session_Movie" Member="Session" ThisKey="SessionID" OtherKey="SessionID" Type="Session" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="idvl.PartitionMembers" Member="PartitionMembers">
+    <Type Name="PartitionMember">
+      <Column Name="CollectionID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PartitionID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Partition_PartitionMember" Member="Partition" ThisKey="PartitionID" OtherKey="PartitionID" Type="Partition" IsForeignKey="true" />
+      <Association Name="Collection_PartitionMember" Member="Collection" ThisKey="CollectionID" OtherKey="CollectionID" Type="Collection" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="idvl.Partitions" Member="Partitions">
+    <Type Name="Partition">
+      <Column Name="PartitionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WorldID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(64) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Association Name="Partition_PartitionMember" Member="PartitionMembers" ThisKey="PartitionID" OtherKey="PartitionID" Type="PartitionMember" />
+      <Association Name="World_Partition" Member="World" ThisKey="WorldID" OtherKey="WorldID" Type="World" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="idvl.Segments" Member="Segments">
+    <Type Name="Segment">
+      <Column Name="SegmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SegmentName" Type="System.String" DbType="VarChar(80) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CollectionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SessionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MovieID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="Abstract" Type="System.String" DbType="VarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EndTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MediaPath" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Duration" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Width" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Height" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FPS" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="SegmentOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NextSegmentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PrevSegmentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TranscriptLength" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TranscriptText" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TranscriptSync" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Keyframe" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="Modified" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="Ready" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="Segment_Annotation" Member="Annotations" ThisKey="SegmentID" OtherKey="SegmentID" Type="Annotation" />
+      <Association Name="Segment_Semaphore" Member="Semaphore" ThisKey="SegmentID" OtherKey="SegmentID" Type="Semaphore" Cardinality="One" />
+      <Association Name="Segment_TaskState" Member="TaskStates" ThisKey="SegmentID" OtherKey="SegmentID" Type="TaskState" />
+      <Association Name="Segment_NamedEntity" Member="NamedEntities" ThisKey="SegmentID" OtherKey="SegmentID" Type="NamedEntity" />
+      <Association Name="Segment_TagImportStatus" Member="TagImportStatus" ThisKey="SegmentID" OtherKey="SegmentID" Type="TagImportStatus" Cardinality="One" />
+      <Association Name="Movie_Segment" Member="Movie" ThisKey="MovieID" OtherKey="MovieID" Type="Movie" IsForeignKey="true" />
+      <Association Name="Collection_Segment" Member="Collection" ThisKey="CollectionID" OtherKey="CollectionID" Type="Collection" IsForeignKey="true" />
+      <Association Name="Session_Segment" Member="Session" ThisKey="SessionID" OtherKey="SessionID" Type="Session" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="idvl.Semaphores" Member="Semaphores">
+    <Type Name="Semaphore">
+      <Column Name="SegmentID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Hostname" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Association Name="Segment_Semaphore" Member="Segment" ThisKey="SegmentID" OtherKey="SegmentID" Type="Segment" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="idvl.TaskStates" Member="TaskStates">
+    <Type Name="TaskState">
+      <Column Name="SegmentID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(32) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="State" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Modified" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Association Name="Segment_TaskState" Member="Segment" ThisKey="SegmentID" OtherKey="SegmentID" Type="Segment" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="idvl.Collections" Member="Collections">
+    <Type Name="Collection">
+      <Column Name="CollectionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Accession" Type="System.String" DbType="VarChar(64) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DescriptionShort" Type="System.String" DbType="VarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="BiographyShort" Type="System.String" DbType="VarChar(2028) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="PreferredName" Type="System.String" DbType="VarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="WebsiteURL" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="Region" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+      <Column Name="BirthCity" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+      <Column Name="BirthState" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+      <Column Name="BirthCountry" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+      <Column Name="BirthDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DeceasedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FileType" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="Portrait" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="Modified" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="Published" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="Phase" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="Collection_Annotation" Member="Annotations" ThisKey="CollectionID" OtherKey="CollectionID" Type="Annotation" />
+      <Association Name="Collection_Movie" Member="Movies" ThisKey="CollectionID" OtherKey="CollectionID" Type="Movie" />
+      <Association Name="Collection_PartitionMember" Member="PartitionMembers" ThisKey="CollectionID" OtherKey="CollectionID" Type="PartitionMember" />
+      <Association Name="Collection_Segment" Member="Segments" ThisKey="CollectionID" OtherKey="CollectionID" Type="Segment" />
+      <Association Name="Collection_Session" Member="Sessions" ThisKey="CollectionID" OtherKey="CollectionID" Type="Session" />
+      <Association Name="Collection_QueuedUpdate" Member="QueuedUpdate" ThisKey="Accession" OtherKey="Accession" Type="QueuedUpdate" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="idvl.Sessions" Member="Sessions">
+    <Type Name="Session">
+      <Column Name="SessionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CollectionID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SessionOrder" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Interviewer" Type="System.String" DbType="VarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="InterviewDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="Videographer" Type="System.String" DbType="VarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="Sponsor" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+      <Column Name="SponsorURL" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="SponsorImage" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ImageType" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="Modified" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="Published" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="Phase" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="Session_Movie" Member="Movies" ThisKey="SessionID" OtherKey="SessionID" Type="Movie" />
+      <Association Name="Session_Segment" Member="Segments" ThisKey="SessionID" OtherKey="SessionID" Type="Segment" />
+      <Association Name="Collection_Session" Member="Collection" ThisKey="CollectionID" OtherKey="CollectionID" Type="Collection" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="idvl.QueuedUpdates" Member="QueuedUpdates">
+    <Type Name="QueuedUpdate">
+      <Column Name="Accession" Type="System.String" DbType="VarChar(64) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Association Name="Collection_QueuedUpdate" Member="Collection" ThisKey="Accession" OtherKey="Accession" Type="Collection" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="idvl.NamedEntities" Member="NamedEntities">
+    <Type Name="NamedEntity">
+      <Column Name="SegmentID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(32) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="VarChar(32) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Segment_NamedEntity" Member="Segment" ThisKey="SegmentID" OtherKey="SegmentID" Type="Segment" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="idvl.TagImportStatus" Member="TagImportStatus">
+    <Type Name="TagImportStatus">
+      <Column Name="SegmentID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FirebaseTimestamp" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastChecked" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="LastStatus" Type="System.String" DbType="NVarChar(32)" CanBeNull="true" />
+      <Column Name="LastUpdated" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Association Name="Segment_TagImportStatus" Member="Segment" ThisKey="SegmentID" OtherKey="SegmentID" Type="Segment" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema 
+  targetNamespace="urn:schemas-idvl-org:xml-collection"
+  xmlns="urn:schemas-idvl-org:xml-collection" 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns:a="urn:schemas-idvl-org:xml-annotation"
+  elementFormDefault="qualified"
+  attributeFormDefault="qualified"  
+>
+  <xs:import namespace="urn:schemas-idvl-org:xml-annotation" schemaLocation="XmlAnnotation.xsd"/>
+
+  <xs:element name="XmlCollection">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Accession">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:length value="64"/>
+            </xs:restriction>
+          </xs:simpleType>        
+        </xs:element>
+        <!---->
+        <xs:element name="DescriptionShort">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="1024"/>
+            </xs:restriction>
+          </xs:simpleType>        
+        </xs:element>
+        <!---->
+        <xs:element name="BiographyShort" default="">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="2048"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <!---->
+        <xs:element name="FirstName">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="64"/>
+            </xs:restriction>
+          </xs:simpleType>        
+        </xs:element>
+        <!---->
+        <xs:element name="LastName">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="64"/>
+            </xs:restriction>
+          </xs:simpleType>        
+        </xs:element>
+        <!---->
+        <xs:element name="PreferredName">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="128"/>
+            </xs:restriction>
+          </xs:simpleType>        
+        </xs:element>
+        <!---->
+        <xs:element name="WebsiteURL">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="128"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <!---->
+        <xs:element name="Region">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="64"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <!---->
+        <xs:element name="BirthCity">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="64"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <!---->
+        <xs:element name="BirthState">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="64"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <!---->
+        <xs:element name="BirthCountry">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="64"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <!---->
+        <xs:element name="Gender" type="XmlGenderType" />
+        <!---->
+        <xs:element name="BirthDate" type="xs:date" nillable="true"/>
+        <!---->
+        <xs:element name="DeceasedDate" type="xs:date" nillable="true"/>
+        <!---->
+        <xs:element name="PortraitPath" type="xs:string"/>
+        <!---->
+        <xs:element name="Sessions" >
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Session" type="XmlSession" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <!---->
+        <xs:element name="Annotations" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Annotation" type="a:XmlAnnotation" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <!---->
+        <xs:element name="Partitions" minOccurs="0" >
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Partition" minOccurs="0" maxOccurs="unbounded">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="64"/>
+                  </xs:restriction>
+                </xs:simpleType>        
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="XmlGenderType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Female"/>
+      <xs:enumeration value="Male"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="XmlSession">
+    <xs:all>
+      <xs:element name="SessionOrder" type="xs:int" />
+      <!---->
+      <xs:element name="Interviewer">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="128"/>
+          </xs:restriction>
+        </xs:simpleType>        
+      </xs:element>
+      <!---->
+      <xs:element name="InterviewDate" type="xs:date" />
+      <!---->
+      <xs:element name="Location">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="256"/>
+          </xs:restriction>
+        </xs:simpleType>        
+      </xs:element>
+      <!---->
+      <xs:element name="Videographer">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="128"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <!---->
+      <xs:element name="Sponsor">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="64"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <!---->
+      <xs:element name="SponsorURL">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="128"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <!---->
+      <xs:element name="SponsorImagePath" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  
+</xs:schema>
+

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FE100AB7-A74A-4DF5-ACCC-E5C5459B459F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InformediaCORE.Processing</RootNamespace>
+    <AssemblyName>InformediaCORE.Processing</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>.\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>.\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Captions\AlignmentFormatter.cs" />
+    <Compile Include="Captions\TextCaptioner.cs" />
+    <Compile Include="Captions\Types\FormattedAlignment.cs" />
+    <Compile Include="Captions\Types\AlignedParagraph.cs" />
+    <Compile Include="Captions\Types\TextCaptions.cs" />
+    <Compile Include="Captions\Types\TimedText.cs" />
+    <Compile Include="Database\DataAccessExtended.cs" />
+    <Compile Include="Gentle\GentleForcedAligner.cs" />
+    <Compile Include="Gentle\Models\AlignmentResult.cs" />
+    <Compile Include="Gentle\Models\WordResult.cs" />
+    <Compile Include="NamedEntities\DateResolver.cs" />
+    <Compile Include="NamedEntities\InternationalLocationResolver.cs" />
+    <Compile Include="NamedEntities\DomesticLocationResolver.cs" />
+    <Compile Include="NamedEntities\NamedEntity.cs" />
+    <Compile Include="NamedEntities\OrganizationResolver.cs" />
+    <Compile Include="NamedEntities\SpacyNERPolisher.cs" />
+    <Compile Include="NamedEntities\StanfordNERPolisher.cs" />
+    <Compile Include="SegmentProcessor.cs" />
+    <Compile Include="SemaphoreManager.cs" />
+    <Compile Include="AutoPublisher.cs" />
+    <Compile Include="Tasks\CaptioningTask.cs" />
+    <Compile Include="Tasks\KeyFrameTask.cs" />
+    <Compile Include="Tasks\EntityResolutionTask.cs" />
+    <Compile Include="Tasks\AbstractTask.cs" />
+    <Compile Include="TaskManager.cs" />
+    <Compile Include="Tasks\AlignmentTask.cs" />
+    <Compile Include="Tasks\SpacyTask.cs" />
+    <Compile Include="Tasks\StanfordTask.cs" />
+    <Compile Include="Tasks\TranscodingTask.cs" />
+    <Compile Include="XmlExporter.cs" />
+    <Compile Include="XmlImporter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InformediaCORE.Azure\InformediaCORE.Azure.csproj">
+      <Project>{3dc77683-a491-4425-ab39-129140f254c5}</Project>
+      <Name>InformediaCORE.Azure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InformediaCORE.Common\InformediaCORE.Common.csproj">
+      <Project>{D269FD4C-D136-45D2-8599-9316B1544991}</Project>
+      <Name>InformediaCORE.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>XCOPY "$(TargetDir)*" "$(SolutionDir)Bin" /C /D /S /Y /F</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

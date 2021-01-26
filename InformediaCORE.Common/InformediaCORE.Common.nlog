@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- 
+  See http://nlog-project.org/wiki/Configuration_file 
+  for information on customizing logging rules and outputs.
+   -->
+  <targets async="false">
+    <!-- add your targets here -->
+
+    <target xsi:type="SplitGroup" name="TraceTarget">
+      <target xsi:type="File" name="file" fileName="${basedir}/Logs/${shortdate}.log"
+              layout="${longdate} | ${pad:padding=5:inner=${level:uppercase=true}} | ${message}${onexception:${newline}Details\:${newline}${exception:format=type,message,stacktrace:separator=~}}" />
+
+      <target xsi:type="ColoredConsole" name="console" useDefaultRowHighlightingRules="False"
+              layout="${longdate} | ${pad:padding=5:inner=${level:uppercase=true}} | ${message}">
+        <highlight-row backgroundColor="NoChange" condition="level == LogLevel.Fatal" foregroundColor="Magenta"/>
+        <highlight-row backgroundColor="NoChange" condition="level == LogLevel.Error" foregroundColor="Red"/>
+        <highlight-row backgroundColor="NoChange" condition="level == LogLevel.Warn"  foregroundColor="Yellow"/>
+        <highlight-row backgroundColor="NoChange" condition="level == LogLevel.Info"  foregroundColor="White"/>
+        <highlight-row backgroundColor="NoChange" condition="level == LogLevel.Debug" foregroundColor="Gray"/>
+        <highlight-row backgroundColor="NoChange" condition="level == LogLevel.Trace" foregroundColor="DarkGray"/>        
+      </target>
+    </target>
+
+    <target xsi:type="File" name="ErrorTarget" fileName="${basedir}/Logs/${shortdate}.error.log"
+            layout="${longdate} | ${pad:padding=5:inner=${level:uppercase=true}} | ${message}${onexception:${newline}Details\:${newline}${exception:format=type,message,stacktrace:separator=~}}" />
+
+  </targets>
+
+  <rules>
+    <!-- add your logging rules here -->
+    <logger name="*" minlevel="Trace" writeTo="TraceTarget"/>
+    <logger name="*" minlevel="Error" writeTo="ErrorTarget"/>
+  </rules>
+</nlog>

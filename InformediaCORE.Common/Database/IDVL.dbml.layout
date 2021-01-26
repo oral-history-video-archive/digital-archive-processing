@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 15.5, 11.25" name="IDVL">
+  <DataContextMoniker Name="/IDVLDataContext" />
+  <nestedChildShapes>
+    <classShape Id="c06d5ea3-571b-4f7f-9490-9cdd31537c6a" absoluteBounds="6.75, 0.5, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/IDVLDataContext/Annotation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="85cd712e-875f-44be-8906-3f33114bf84a" absoluteBounds="6.7650000000000006, 0.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ee68e5a0-5d32-4f88-9187-36b26da04d48" absoluteBounds="0.5, 9.5, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/IDVLDataContext/World" />
+      <nestedChildShapes>
+        <elementListCompartment Id="484e1bb1-b4d9-45a9-9dae-1564bc795acb" absoluteBounds="0.51500000000000012, 9.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1a0eae2c-811f-4a0c-aea3-1127d1a0100c" absoluteBounds="0.5, 0.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/IDVLDataContext/AnnotationType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="52bf19d7-3258-436f-ad5a-f1595c39711b" absoluteBounds="0.515, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a4f4f047-bafe-42eb-b318-aec84a3d2e71" absoluteBounds="6.625, 4.75, 2, 3.5016097005208309">
+      <DataClassMoniker Name="/IDVLDataContext/Movie" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3d78c250-fc63-4ace-8060-11bea852cb26" absoluteBounds="6.64, 5.2100000000000009, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="21e8626e-d1d2-4cdc-8bd8-5359a1509014" absoluteBounds="0.5, 5.125, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/IDVLDataContext/PartitionMember" />
+      <nestedChildShapes>
+        <elementListCompartment Id="095cee1d-dbaa-4a68-87af-8d2691b37917" absoluteBounds="0.51500000000000012, 5.5850000000000009, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="03b59022-e895-4972-8b87-41099f309bdb" absoluteBounds="0.5, 7.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/IDVLDataContext/Partition" />
+      <nestedChildShapes>
+        <elementListCompartment Id="324246c5-284e-4220-8a65-5b0343e4ae37" absoluteBounds="0.515, 7.7100000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f25d99cf-f7af-4a33-b785-eecf4a824ba4" absoluteBounds="9.875, 3.625, 2, 5.6169254557291666">
+      <DataClassMoniker Name="/IDVLDataContext/Segment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="593a4226-7125-432b-ad18-8790996aca89" absoluteBounds="9.89, 4.0850000000000009, 1.9700000000000002, 5.0569254557291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0ec9501e-effe-4897-b458-74ffe7ab1c0c" absoluteBounds="13.25, 4.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/IDVLDataContext/Semaphore" />
+      <nestedChildShapes>
+        <elementListCompartment Id="89455b94-255f-4b79-8109-20f1d1f80442" absoluteBounds="13.265, 4.9600000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="92e4178b-a21e-41c2-b7e9-54ff79bc316b" absoluteBounds="13.25, 6.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/IDVLDataContext/TaskState" />
+      <nestedChildShapes>
+        <elementListCompartment Id="64a197c0-1ed3-493b-ab5b-dfa156fc1052" absoluteBounds="13.265, 6.9600000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 0.96875); (6.75 : 0.96875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/IDVLDataContext/AnnotationType/AnnotationType_Annotation" />
+      <nodes>
+        <classShapeMoniker Id="1a0eae2c-811f-4a0c-aea3-1127d1a0100c" />
+        <classShapeMoniker Id="c06d5ea3-571b-4f7f-9490-9cdd31537c6a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.5 : 7.25); (1.5 : 6.31899251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IDVLDataContext/Partition/Partition_PartitionMember" />
+      <nodes>
+        <classShapeMoniker Id="03b59022-e895-4972-8b87-41099f309bdb" />
+        <classShapeMoniker Id="21e8626e-d1d2-4cdc-8bd8-5359a1509014" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.5 : 9.5); (1.5 : 8.82859537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IDVLDataContext/World/World_Partition" />
+      <nodes>
+        <classShapeMoniker Id="ee68e5a0-5d32-4f88-9187-36b26da04d48" />
+        <classShapeMoniker Id="03b59022-e895-4972-8b87-41099f309bdb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.875 : 3.625); (10.875 : 1.48159912109375); (8.75 : 1.48159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IDVLDataContext/Segment/Segment_Annotation" />
+      <nodes>
+        <classShapeMoniker Id="f25d99cf-f7af-4a33-b785-eecf4a824ba4" />
+        <classShapeMoniker Id="c06d5ea3-571b-4f7f-9490-9cdd31537c6a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.875 : 5.28929768880208); (13.25 : 5.28929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IDVLDataContext/Segment/Segment_Semaphore" />
+      <nodes>
+        <classShapeMoniker Id="f25d99cf-f7af-4a33-b785-eecf4a824ba4" />
+        <classShapeMoniker Id="0ec9501e-effe-4897-b458-74ffe7ab1c0c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.875 : 7.28929768880208); (13.25 : 7.28929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IDVLDataContext/Segment/Segment_TaskState" />
+      <nodes>
+        <classShapeMoniker Id="f25d99cf-f7af-4a33-b785-eecf4a824ba4" />
+        <classShapeMoniker Id="92e4178b-a21e-41c2-b7e9-54ff79bc316b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.6875 : 4.75); (7.6875 : 2.4631982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IDVLDataContext/Movie/Movie_Annotation" />
+      <nodes>
+        <classShapeMoniker Id="a4f4f047-bafe-42eb-b318-aec84a3d2e71" />
+        <classShapeMoniker Id="c06d5ea3-571b-4f7f-9490-9cdd31537c6a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.625 : 6.50080485026042); (9.875 : 6.50080485026042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IDVLDataContext/Movie/Movie_Segment" />
+      <nodes>
+        <classShapeMoniker Id="a4f4f047-bafe-42eb-b318-aec84a3d2e71" />
+        <classShapeMoniker Id="f25d99cf-f7af-4a33-b785-eecf4a824ba4" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="761f0c6e-0a35-4efb-b08b-9ad4935838df" absoluteBounds="3.5, 1.5, 2, 4.8477197265625">
+      <DataClassMoniker Name="/IDVLDataContext/Collection" />
+      <nestedChildShapes>
+        <elementListCompartment Id="99bf9a29-f998-4791-8b11-1df6ee4a092c" absoluteBounds="3.5149999999999997, 1.96, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 1.98159912109375); (6.75 : 1.98159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IDVLDataContext/Collection/Collection_Annotation" />
+      <nodes>
+        <classShapeMoniker Id="761f0c6e-0a35-4efb-b08b-9ad4935838df" />
+        <classShapeMoniker Id="c06d5ea3-571b-4f7f-9490-9cdd31537c6a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 5.54885986328125); (6.625 : 5.54885986328125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IDVLDataContext/Collection/Collection_Movie" />
+      <nodes>
+        <classShapeMoniker Id="761f0c6e-0a35-4efb-b08b-9ad4935838df" />
+        <classShapeMoniker Id="a4f4f047-bafe-42eb-b318-aec84a3d2e71" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.5 : 5.72199625651042); (2.5 : 5.72199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IDVLDataContext/Collection/Collection_PartitionMember" />
+      <nodes>
+        <classShapeMoniker Id="761f0c6e-0a35-4efb-b08b-9ad4935838df" />
+        <classShapeMoniker Id="21e8626e-d1d2-4cdc-8bd8-5359a1509014" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.15625); (7.60416666666667 : 4.15625 : JumpStart); (7.77083333333333 : 4.15625 : JumpEnd); (9.875 : 4.15625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IDVLDataContext/Collection/Collection_Segment" />
+      <nodes>
+        <classShapeMoniker Id="761f0c6e-0a35-4efb-b08b-9ad4935838df" />
+        <classShapeMoniker Id="f25d99cf-f7af-4a33-b785-eecf4a824ba4" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b82f06d4-b0c5-4da5-b6fc-66f183f4013c" absoluteBounds="3.5, 7.25, 2, 3.6939111328124996">
+      <DataClassMoniker Name="/IDVLDataContext/Session" />
+      <nestedChildShapes>
+        <elementListCompartment Id="620ed435-1282-47b0-bd6c-c51558b482f7" absoluteBounds="3.5149999999999997, 7.71, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 7.75080485026042); (6.625 : 7.75080485026042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IDVLDataContext/Session/Session_Movie" />
+      <nodes>
+        <classShapeMoniker Id="b82f06d4-b0c5-4da5-b6fc-66f183f4013c" />
+        <classShapeMoniker Id="a4f4f047-bafe-42eb-b318-aec84a3d2e71" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 8.778017578125); (9.875 : 8.778017578125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IDVLDataContext/Session/Session_Segment" />
+      <nodes>
+        <classShapeMoniker Id="b82f06d4-b0c5-4da5-b6fc-66f183f4013c" />
+        <classShapeMoniker Id="f25d99cf-f7af-4a33-b785-eecf4a824ba4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 6.3477197265625); (4.5 : 7.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IDVLDataContext/Collection/Collection_Session" />
+      <nodes>
+        <classShapeMoniker Id="761f0c6e-0a35-4efb-b08b-9ad4935838df" />
+        <classShapeMoniker Id="b82f06d4-b0c5-4da5-b6fc-66f183f4013c" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="c8a6c3fa-3928-461b-8995-8e6a02c0e490" absoluteBounds="0.5, 2.75, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/IDVLDataContext/QueuedUpdate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7f00ea5d-5811-4aa1-999d-2efa21ab8202" absoluteBounds="0.51500000000000012, 3.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.5 : 3.34699625651042); (2.5 : 3.34699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IDVLDataContext/Collection/Collection_QueuedUpdate" />
+      <nodes>
+        <classShapeMoniker Id="761f0c6e-0a35-4efb-b08b-9ad4935838df" />
+        <classShapeMoniker Id="c8a6c3fa-3928-461b-8995-8e6a02c0e490" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1ad57f8a-e507-4baf-abac-bcf74cbe62d9" absoluteBounds="13.25, 2.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/IDVLDataContext/NamedEntity" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7f643d4b-69d6-41e7-95cc-7fd20a4efc95" absoluteBounds="13.265, 3.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.875 : 3.88064697265625); (13.25 : 3.88064697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IDVLDataContext/Segment/Segment_NamedEntity" />
+      <nodes>
+        <classShapeMoniker Id="f25d99cf-f7af-4a33-b785-eecf4a824ba4" />
+        <classShapeMoniker Id="1ad57f8a-e507-4baf-abac-bcf74cbe62d9" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="710dad0e-1a3a-4f33-8545-ebc9231efa2e" absoluteBounds="13.25, 8.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/IDVLDataContext/TagImportStatus" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a169d435-a364-490e-88f2-523941c3f58b" absoluteBounds="13.265, 8.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.875 : 8.87096272786458); (13.25 : 8.87096272786458)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/IDVLDataContext/Segment/Segment_TagImportStatus" />
+      <nodes>
+        <classShapeMoniker Id="f25d99cf-f7af-4a33-b785-eecf4a824ba4" />
+        <classShapeMoniker Id="710dad0e-1a3a-4f33-8545-ebc9231efa2e" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

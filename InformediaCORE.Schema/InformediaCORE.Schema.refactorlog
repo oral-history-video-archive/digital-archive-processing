@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="4e8cee97-40a8-484e-a04b-b4d27e71dbe2" ChangeDateTime="04/24/2017 18:32:29">
+    <Property Name="ElementName" Value="[idvl].[Collections].[CollectionName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[idvl].[Collections]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Accession" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9a8ff327-e48d-440b-97b7-83e19809e205" ChangeDateTime="04/24/2017 18:51:39">
+    <Property Name="ElementName" Value="[idvl].[Collections].[CollectionName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[idvl].[Collections]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Accession" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="abfe81b6-fda2-4169-8323-7ec269074d57" ChangeDateTime="04/24/2017 18:51:46">
+    <Property Name="ElementName" Value="[idvl].[Collections].[Abstract]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[idvl].[Collections]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="DescriptionShort" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="cd7713bf-08cf-468f-87b7-a3d89e195450" ChangeDateTime="04/24/2017 19:44:05">
+    <Property Name="ElementName" Value="[idvl].[PK_Collections_CollectionName]" />
+    <Property Name="ElementType" Value="SqlPrimaryKeyConstraint" />
+    <Property Name="ParentElementName" Value="[idvl].[Collections]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[PK_Collections_Accession]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="fc3569da-2392-43fe-84f9-662a9fe94e9c" ChangeDateTime="04/02/2018 16:35:23">
+    <Property Name="ElementName" Value="[idvl].[UpdateQueue].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[idvl].[UpdateQueue]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Accession" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="bf942ac6-7f3e-4e6a-ae9f-fa89ff3e68e3" ChangeDateTime="05/20/2020 17:29:39">
+    <Property Name="ElementName" Value="[idvl].[TagUpdateStatus].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[idvl].[TagUpdateStatus]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SegmentID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4472a743-90fd-4fb8-a7d1-3690763ed0f1" ChangeDateTime="05/20/2020 17:51:09">
+    <Property Name="ElementName" Value="[idvl].[TagUpdateStatus].[LastModified]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[idvl].[TagUpdateStatus]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="FBModified" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b82ecb59-dcf5-4d9a-b5aa-a1598d6e8bc5" ChangeDateTime="05/20/2020 17:57:55">
+    <Property Name="ElementName" Value="[idvl].[TagUpdateStatus].[FBModified]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[idvl].[TagUpdateStatus]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UserModified" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b9261bc4-853d-42d3-a358-0f96d7702a96" ChangeDateTime="05/20/2020 17:58:26">
+    <Property Name="ElementName" Value="[idvl].[TagUpdateStatus].[UserModified]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[idvl].[TagUpdateStatus]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LastEdited" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e146155d-edad-4a0c-b88d-14140857e052" ChangeDateTime="05/20/2020 17:59:35">
+    <Property Name="ElementName" Value="[idvl].[TagUpdateStatus].[LastEdited]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[idvl].[TagUpdateStatus]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LastModified" />
+  </Operation>
+</Operations>

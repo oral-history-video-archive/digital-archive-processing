@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema 
+  targetNamespace="urn:schemas-idvl-org:xml-movie" 
+  xmlns="urn:schemas-idvl-org:xml-movie"   
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns:a="urn:schemas-idvl-org:xml-annotation"
+  attributeFormDefault="qualified" 
+  elementFormDefault="qualified"  
+>
+  <xs:import namespace="urn:schemas-idvl-org:xml-annotation" schemaLocation="XmlAnnotation.xsd"/>
+  
+  <xs:element name="XmlMovie">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Name">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:length value="64"/>
+            </xs:restriction>
+          </xs:simpleType>        
+        </xs:element>
+        <xs:element name="Path">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:length value="255"/>
+            </xs:restriction>
+          </xs:simpleType>        
+        </xs:element>
+        <xs:element name="Collection">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:length value="64"/>
+            </xs:restriction>
+          </xs:simpleType>        
+        </xs:element>
+        <xs:element name="Abstract">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:length value="1024"/>
+            </xs:restriction>
+          </xs:simpleType>        
+        </xs:element>
+        <xs:element name="TapeNumber" type="xs:int"/>
+        <xs:element name="SessionNumber" type="xs:int"/>
+        <xs:element name="Annotations" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Annotation" type="a:XmlAnnotation" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Segments" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Segment" type="XmlSegment" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="XmlSegment">
+    <xs:all>
+      <xs:element name="Title">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:length value="256"/>
+            </xs:restriction>
+          </xs:simpleType>        
+        </xs:element>
+      <xs:element name="Abstract">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:length value="1024"/>
+            </xs:restriction>
+          </xs:simpleType>        
+        </xs:element>
+      <xs:element name="TimeFormat" type="XmlTimeFormatSpecifier"/>
+      <xs:element name="StartTime" type="xs:time"/>
+      <xs:element name="EndTime" type="xs:time"/>
+      <xs:element name="Transcript">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Paragraph" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          </xs:sequence>
+        </xs:complexType>        
+      </xs:element>
+      <xs:element name="Annotations" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Annotation" type="a:XmlAnnotation" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:simpleType name="XmlTimeFormatSpecifier">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="HMS-HMS"/>
+      <xs:enumeration value="HMS-END"/>
+    </xs:restriction>
+  </xs:simpleType>  
+</xs:schema>

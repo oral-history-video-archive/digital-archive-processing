@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WorldsPartitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<MemberWorlds>
+<World>
+<Name>Maker Group</Name>
+<Desc>Maker Category</Desc>
+<ChildPartitions>
+        <Partition>
+          <Name>ArtMaker</Name>
+          <Desc>ArtMaker</Desc>
+        </Partition>
+        <Partition>
+          <Name>BusinessMaker</Name>
+          <Desc>BusinessMaker</Desc>
+        </Partition>
+        <Partition>
+          <Name>CivicMaker</Name>
+          <Desc>CivicMaker</Desc>
+        </Partition>
+        <Partition>
+          <Name>EducationMaker</Name>
+          <Desc>EducationMaker</Desc>
+        </Partition>
+        <Partition>
+          <Name>EntertainmentMaker</Name>
+          <Desc>EntertainmentMaker</Desc>
+        </Partition>
+        <Partition>
+          <Name>LawMaker</Name>
+          <Desc>LawMaker</Desc>
+        </Partition>
+        <Partition>
+          <Name>MediaMaker</Name>
+          <Desc>MediaMaker</Desc>
+        </Partition>
+        <Partition>
+          <Name>MedicalMaker</Name>
+          <Desc>MedicalMaker</Desc>
+        </Partition>
+        <Partition>
+          <Name>MilitaryMaker</Name>
+          <Desc>MilitaryMaker</Desc>
+        </Partition>
+        <Partition>
+          <Name>MusicMaker</Name>
+          <Desc>MusicMaker</Desc>
+        </Partition>
+        <Partition>
+          <Name>PoliticalMaker</Name>
+          <Desc>PoliticalMaker</Desc>
+        </Partition>
+        <Partition>
+          <Name>ReligionMaker</Name>
+          <Desc>ReligionMaker</Desc>
+        </Partition>
+        <Partition>
+          <Name>ScienceMaker</Name>
+          <Desc>ScienceMaker</Desc>
+        </Partition>
+        <Partition>
+          <Name>SportsMaker</Name>
+          <Desc>SportsMaker</Desc>
+        </Partition>
+        <Partition>
+          <Name>StyleMaker</Name>
+          <Desc>StyleMaker</Desc>
+        </Partition>
+</ChildPartitions>
+</World>
+<World>
+<Name>Job Type</Name>
+<Desc>Job Type</Desc>
+<ChildPartitions>
+        <Partition>
+          <Name>Activists, Community and Social Services</Name>
+          <Desc>Activists, Community and Social Services</Desc>
+        </Partition>
+        <Partition>
+          <Name>Architecture and Engineering</Name>
+          <Desc>Architecture and Engineering</Desc>
+        </Partition>
+        <Partition>
+          <Name>Arts, Design, Entertainment, Sports, and Media</Name>
+          <Desc>Arts, Design, Entertainment, Sports, and Media</Desc>
+        </Partition>
+        <Partition>
+          <Name>Building and Grounds Cleaning and Maintenance</Name>
+          <Desc>Building and Grounds Cleaning and Maintenance</Desc>
+        </Partition>
+        <Partition>
+          <Name>Business and Financial Operations</Name>
+          <Desc>Business and Financial Operations</Desc>
+        </Partition>
+        <Partition>
+          <Name>Computer and Mathematical</Name>
+          <Desc>Computer and Mathematical</Desc>
+        </Partition>
+        <Partition>
+          <Name>Construction and Extraction</Name>
+          <Desc>Construction and Extraction</Desc>
+        </Partition>
+        <Partition>
+          <Name>Education, Training, and Library</Name>
+          <Desc>Education, Training, and Library</Desc>
+        </Partition>
+        <Partition>
+          <Name>Farming, Fishing, and Forestry</Name>
+          <Desc>Farming, Fishing, and Forestry</Desc>
+        </Partition>
+        <Partition>
+          <Name>Food Preparation and Serving Related</Name>
+          <Desc>Food Preparation and Serving Related</Desc>
+        </Partition>
+        <Partition>
+          <Name>Government</Name>
+          <Desc>Government</Desc>
+        </Partition>
+        <Partition>
+          <Name>Healthcare Practitioners and Technical</Name>
+          <Desc>Healthcare Practitioners and Technical</Desc>
+        </Partition>
+        <Partition>
+          <Name>Installation, Maintenance, and Repair</Name>
+          <Desc>Installation, Maintenance, and Repair</Desc>
+        </Partition>
+        <Partition>
+          <Name>Legal</Name>
+          <Desc>Legal</Desc>
+        </Partition>
+        <Partition>
+          <Name>Life, Physical, and Social Science</Name>
+          <Desc>Life, Physical, and Social Science</Desc>
+        </Partition>
+        <Partition>
+          <Name>Management</Name>
+          <Desc>Management</Desc>
+        </Partition>
+        <Partition>
+          <Name>Military Specific</Name>
+          <Desc>Military Specific</Desc>
+        </Partition>
+        <Partition>
+          <Name>Office and Administrative Support</Name>
+          <Desc>Office and Administrative Support</Desc>
+        </Partition>
+        <Partition>
+          <Name>Personal Care and Service</Name>
+          <Desc>Personal Care and Service</Desc>
+        </Partition>
+        <Partition>
+          <Name>Production</Name>
+          <Desc>Production</Desc>
+        </Partition>
+        <Partition>
+          <Name>Protective Service</Name>
+          <Desc>Protective Service</Desc>
+        </Partition>
+        <Partition>
+          <Name>Sales and Related</Name>
+          <Desc>Sales and Related</Desc>
+        </Partition>
+        <Partition>
+          <Name>Transportation and Material Moving</Name>
+          <Desc>Transportation and Material Moving</Desc>
+        </Partition>
+</ChildPartitions>
+</World>
+</MemberWorlds>
+<OpenEndedCollectionScopeWorlds>
+<CollectionScopeWorld>
+<Name>Favorite Color</Name>
+<Desc>Favorite Color</Desc>
+</CollectionScopeWorld>
+<CollectionScopeWorld>
+<Name>Favorite Food</Name>
+<Desc>Favorite Food</Desc>
+</CollectionScopeWorld>
+<CollectionScopeWorld>
+<Name>Favorite Time of Year</Name>
+<Desc>Favorite Season</Desc>
+</CollectionScopeWorld>
+<CollectionScopeWorld>
+<Name>Favorite Vacation Spot</Name>
+<Desc>Favorite Vacation Spot</Desc>
+</CollectionScopeWorld>
+</OpenEndedCollectionScopeWorlds>
+</WorldsPartitions>

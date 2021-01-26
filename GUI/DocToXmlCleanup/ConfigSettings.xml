@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!-- For this interview set, do use HistoryMakers conventions, e.g., in how to assemble the video filename (pass 1 as the "true" indicator) -->
+  <UseHistoryMakersConventions>0</UseHistoryMakersConventions>
+  <AllowFrameCountInTimeCode>1</AllowFrameCountInTimeCode>
+  <WorldsPartitionsXMLFilename>TheHistoryMakersWorldsParts.xml</WorldsPartitionsXMLFilename>
+  <PortraitPath></PortraitPath>
+  <VideoPath>\\dvl-vault\Projects\DigitalArchive\Interviews</VideoPath>
+  <!-- For this interview set, do not allow story segments shorter than 5 seconds or longer than 900 seconds -->
+  <MinLegalSegmentLengthInSecs>5</MinLegalSegmentLengthInSecs>
+  <MaxLegalSegmentLengthInSecs>900</MaxLegalSegmentLengthInSecs>
+</ConfigSettings>

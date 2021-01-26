@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+    <PostConversionRemoveFromScc>
+    </PostConversionRemoveFromScc>
+    <PostConversionAddToScc>
+    </PostConversionAddToScc>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>InformediaCORE.Schema</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ShowWizard>True</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <LoadSqlClrTypes>True</LoadSqlClrTypes>
+    <RootNamespace>Schema</RootNamespace>
+    <DefaultSchema>idvl</DefaultSchema>
+    <PreviousProjectVersion>4.1</PreviousProjectVersion>
+    <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{264bba7b-2351-4b93-b000-411676d7991b}</ProjectGuid>
+    <GenerateDatabaseFile>False</GenerateDatabaseFile>
+    <GenerateCreateScript>False</GenerateCreateScript>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <AnsiNullDefault>True</AnsiNullDefault>
+    <AnsiNulls>True</AnsiNulls>
+    <AnsiPadding>True</AnsiPadding>
+    <AnsiWarnings>True</AnsiWarnings>
+    <ArithAbort>True</ArithAbort>
+    <ConcatNullYieldsNull>True</ConcatNullYieldsNull>
+    <QuotedIdentifier>True</QuotedIdentifier>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <DatabaseState>ONLINE</DatabaseState>
+    <UpdateOptions>READ_WRITE</UpdateOptions>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <DefaultCursor>LOCAL</DefaultCursor>
+    <AutoClose>False</AutoClose>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoShrink>False</AutoShrink>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <TornPageDetection>False</TornPageDetection>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <Recovery>FULL</Recovery>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <DatabaseChaining>False</DatabaseChaining>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <Trustworthy>False</Trustworthy>
+    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
+    <PageVerify>NONE</PageVerify>
+    <ServiceBrokerOption>DisableBroker</ServiceBrokerOption>
+    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
+    <Parameterization>SIMPLE</Parameterization>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
+    <SupplementalLoggingOn>False</SupplementalLoggingOn>
+    <DefaultFileStreamFilegroup />
+    <IsChangeTrackingOn>False</IsChangeTrackingOn>
+    <IsChangeTrackingAutoCleanupOn>True</IsChangeTrackingAutoCleanupOn>
+    <ChangeTrackingRetentionPeriod>2</ChangeTrackingRetentionPeriod>
+    <ChangeTrackingRetentionUnit>Days</ChangeTrackingRetentionUnit>
+    <IsEncryptionOn>False</IsEncryptionOn>
+    <IsBrokerPriorityHonored>False</IsBrokerPriorityHonored>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>.\sql\release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>InformediaCORE</TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+    <DBSchemaFileName>InformediaCORE.Schema</DBSchemaFileName>
+    <DeployScriptFileName>InformediaCORE.Schema.sql</DeployScriptFileName>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <OutputPath>.\sql\debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>InformediaCORE</TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+    <DeployScriptFileName>InformediaCORE.Schema.sql</DeployScriptFileName>
+    <DBSchemaFileName>InformediaCORE.Schema</DBSchemaFileName>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" Condition="'$(SQLDBExtensionsRefPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" Condition="'$(SQLDBExtensionsRefPath)' == ''" />
+  <ItemGroup>
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Pre-Deployment" />
+    <Folder Include="Scripts\Post-Deployment" />
+    <Folder Include="Data Generation Plans" />
+    <Folder Include="Schema Comparisons" />
+    <Folder Include="Properties\" />
+    <Folder Include="Schema Objects\" />
+    <Folder Include="Schema Objects\Schemas\" />
+    <Folder Include="Schema Objects\Schemas\idvl" />
+    <Folder Include="Schema Objects\Schemas\idvl\Programmability" />
+    <Folder Include="Schema Objects\Schemas\idvl\Programmability\Defaults" />
+    <Folder Include="Schema Objects\Schemas\idvl\Programmability\Functions" />
+    <Folder Include="Schema Objects\Schemas\idvl\Programmability\Rules" />
+    <Folder Include="Schema Objects\Schemas\idvl\Programmability\Stored Procedures" />
+    <Folder Include="Schema Objects\Schemas\idvl\Programmability\Types" />
+    <Folder Include="Schema Objects\Schemas\idvl\Programmability\Types\User Defined Data Types" />
+    <Folder Include="Schema Objects\Schemas\idvl\Programmability\Types\User Defined Types CLR" />
+    <Folder Include="Schema Objects\Schemas\idvl\Programmability\Types\User Defined Table Types" />
+    <Folder Include="Schema Objects\Schemas\idvl\Programmability\Types\XML Schema Collections" />
+    <Folder Include="Schema Objects\Schemas\idvl\Service Broker" />
+    <Folder Include="Schema Objects\Schemas\idvl\Service Broker\Queues" />
+    <Folder Include="Schema Objects\Schemas\idvl\Synonyms" />
+    <Folder Include="Schema Objects\Schemas\idvl\Tables" />
+    <Folder Include="Schema Objects\Schemas\idvl\Tables\Constraints" />
+    <Folder Include="Schema Objects\Schemas\idvl\Tables\Indexes" />
+    <Folder Include="Schema Objects\Schemas\idvl\Tables\Keys" />
+    <Folder Include="Schema Objects\Schemas\idvl\Tables\Triggers" />
+    <Folder Include="Schema Objects\Schemas\idvl\Tables\Statistics" />
+    <Folder Include="Schema Objects\Schemas\idvl\Views" />
+    <Folder Include="Schema Objects\Schemas\idvl\Views\Indexes" />
+    <Folder Include="Schema Objects\Schemas\idvl\Views\Triggers" />
+    <Folder Include="Schema Objects\Schemas\idvl\Views\Statistics" />
+    <Folder Include="Schema Objects\Database Level Objects\" />
+    <Folder Include="Schema Objects\Database Level Objects\Assemblies\" />
+    <Folder Include="Schema Objects\Database Level Objects\Database Triggers\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Schemas\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Users\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Certificates\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Asymmetric Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Master Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Signatures\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Symmetric Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Database Encryption Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Database Audit Specification\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Application Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Database Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Broker Priorities\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Contracts\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Event Notifications\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Message Types\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Remote Service Binding\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Routes\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Services\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Stoplists\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Filegroups\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Files\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Catalogs\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Functions\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Schemes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Collections.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Movies.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Segments.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\idvl.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Movies.CollectionID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Segments.MovieID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\PartitionMembers.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Partitions.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Worlds.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\PartitionMembers.CollectionID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\PartitionMembers.PartitionID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\AnnotationTypes.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Annotations.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Annotations.AnnotationID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Annotations.CollectionID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Annotations.MovieID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Annotations.SegmentID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Annotations.TypeID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\PartitionMembers.CollectionID_PartitionID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Triggers\Movies.OnInsert.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Triggers\Movies.OnUpdate.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Triggers\Segments.OnInsert.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Triggers\Segments.OnUpdate.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Sessions.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Sessions.CollectionID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Movies.SessionID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Sessions.CollectionID_SessionOrder.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Sessions.SessionID.ukey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\AnnotationTypes.Name.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\AnnotationTypes.TypeID.ukey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Collections.CollectionID.ukey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Collections.Accession.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Movies.MovieName.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Segments.SegmentName.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Movies.MovieID.ukey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Segments.SegmentID.ukey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Worlds.WorldID.ukey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Partitions.PartitionID.ukey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Worlds.Name.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Partitions.Name.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Partitions.WorldID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\TaskStates.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Semaphores.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Semaphores.SegmentID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Semaphores.SegmentID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Semaphores_PID_Hostname.ukey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Triggers\Semaphores.OnInsert.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\TaskStates.SegmentID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\TaskStates.SegmentID_Name.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Permissions.sql" />
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Triggers\Sessions.OnUpdate.trigger.sql" />
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Triggers\TaskStates.OnInsertOrUpdate.trigger.sql" />
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Segments.CollectionID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Segments.SessionID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Triggers\Collections.OnInsert.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Triggers\Collections.OnUpdate.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Triggers\Sessions.OnInsert.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\QueuedUpdates.sql" />
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Triggers\QueuedUpdates.OnInsert.trigger.sql" />
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\QueuedUpdates.Accession.fkey.sql" />
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\QueuedUpdates.Accession.pkey.sql" />
+    <Build Include="Schema Objects\Schemas\idvl\Tables\NamedEntities.table.sql" />
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\NamedEntites.SegmentID.fkey.sql" />
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\NamedEntities.SegmentID_Type_Value.pkey.sql" />
+    <Build Include="Schema Objects\Schemas\idvl\Tables\TagImportStatus.sql" />
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\TagImportStatus.SegmentID.pkey.sql" />
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\TagImportStatus.SegmentID.fkey.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Debug.publish.xml" />
+    <None Include="Release.publish.xml" />
+    <None Include="InformediaCORE.Schema.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="Scripts\Pre-Deployment\Script.PreDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="InformediaCORE.Schema.refactorlog" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema 
+  targetNamespace="urn:schemas-idvl-org:xml-annotation-type"
+  xmlns="urn:schemas-idvl-org:xml-annotation-type"  
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  attributeFormDefault="qualified"
+  elementFormDefault="qualified"   
+>
+  <xs:element name="XmlAnnotationType">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Name">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:length value="32"/>
+            </xs:restriction>
+          </xs:simpleType>        
+        </xs:element>
+        <xs:element name="Scope" type="XmlAnnotationScope"/>
+        <xs:element name="Description">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:length value="128"/>
+            </xs:restriction>
+          </xs:simpleType>        
+        </xs:element>        
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="XmlAnnotationScope">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Collection"/>
+      <xs:enumeration value="Movie"/>
+      <xs:enumeration value="Segment"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

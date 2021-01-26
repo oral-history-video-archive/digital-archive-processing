@@ -1,0 +1,66 @@
+A list of the known segmentation markup tags used by DocToXmlCleanup
+====================================================================
+
+Input documents MUST start with ***COLLECTION (for collection input), ***SESSIONINFO (for session), or ***MOVIE (for movie and its segments).
+
+Required tags for collection input document:
+Opening line of ***COLLECTION
+***LAST NAME
+***PREFERRED NAME
+***ACCESSION
+***GENDER
+***BIRTH DATE              
+***PORTRAIT
+***SHORT DESCRIPTION (note, maximum of 1024 characters)
+***FIRST NAME
+***BIOGRAPHY (note, maximum of 2048 characters)
+***URL
+***REGION
+
+Optional tags for collection input document (skip if not known or not applicable):
+***DECEASED DATE
+***BIRTH CITY
+***BIRTH STATE
+***BIRTH COUNTRY
+
+Other tags for collection are controlled by a separate "configuration" document.
+Typical extra tags for collection are annotations and facets, including these:
+***MAKER GROUP (then each maker group listed separately, each on its own line; vocabulary is controlled by config file)
+***JOB TYPE (then each job type listed separately, each on its own line; vocabulary is controlled by config file)
+***OCCUPATION (then each occupation listed separately, each on its own line)
+***FAVORITE FOOD
+***FAVORITE COLOR
+***FAVORITE QUOTE
+***FAVORITE TIME OF YEAR
+***FAVORITE VACATION SPOT
+
+Required tags for session input document:
+Opening line of ***SESSIONINFO
+***ACCESSION (very important, as this lines up sessions with their collection)
+***SESSION (session number, assumed first session is 1)
+***INTERVIEWER
+***INTERVIEW DATE
+***INTERVIEW LOCATION
+***VIDEOGRAPHER
+
+Optional tags for session input document (skip if not known or not applicable):
+***SPONSOR
+***SPONSOR IMAGE
+***SPONSOR URL
+
+Required tags for collection input document:
+Opening line of ***MOVIE
+***ACCESSION (very important, as this lines up movies with their collection)
+***SESSION (very important, as this lines up movies with their session)
+***TAPE (tape number, assumed first tape is 1)
+***FILENAME
+***ABSTRACT (note, maximum of 1024 characters)
+
+Optional tags for movie input document (skip if not known or not applicable):
+***INITIAL TIMECODE
+***NONDROP TIMECODE IN USE
+***PLAYBACK FRAME RATE
+***TRANSCRIBER
+***TRANSCRIPTION DATE
+***PRODUCER
+***PRODUCTION COMPANY

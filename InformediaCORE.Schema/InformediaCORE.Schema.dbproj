@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>InformediaCORE.Schema</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.0</ProjectVersion>
+    <ProjectGuid>{67cbc824-a49e-4e9b-a947-360f3dfe65c3}</ProjectGuid>
+    <DSP>Microsoft.Data.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ShowWizard>True</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchema</DefaultFileStructure>
+    <DeployToDatabaseAddToServerExplorer>True</DeployToDatabaseAddToServerExplorer>
+    <DeployToScript>True</DeployToScript>
+    <CatalogPropertiesFile>Properties\Database.sqlsettings</CatalogPropertiesFile>
+    <ServerPropertiesFile>
+    </ServerPropertiesFile>
+    <LoadSqlClrTypes>True</LoadSqlClrTypes>
+    <RootNamespace>Schema</RootNamespace>
+    <DefaultSchema>idvl</DefaultSchema>
+    <PreviousProjectVersion>4.0</PreviousProjectVersion>
+    <AllowServerObjects>False</AllowServerObjects>
+    <AllowDatabaseObjects>True</AllowDatabaseObjects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>.\sql\release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString>
+    </TargetConnectionString>
+    <TargetDatabase>InformediaCORE</TargetDatabase>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings>
+    </SuppressWarnings>
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+    <DBSchemaFileName>InformediaCORE.Schema</DBSchemaFileName>
+    <DeployScriptFileName>InformediaCORE.Schema.sql</DeployScriptFileName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>.\sql\debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString>Data Source=DVL-SANDBOX\SQLExpress;Integrated Security=True;Pooling=False</TargetConnectionString>
+    <TargetDatabase>InformediaCORE</TargetDatabase>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings>
+    </SuppressWarnings>
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+    <DeployScriptFileName>InformediaCORE.Schema.sql</DeployScriptFileName>
+    <DBSchemaFileName>InformediaCORE.Schema</DBSchemaFileName>
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\TeamData\Microsoft.Data.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Pre-Deployment" />
+    <Folder Include="Scripts\Post-Deployment" />
+    <Folder Include="Data Generation Plans" />
+    <Folder Include="Schema Comparisons" />
+    <Folder Include="Properties\" />
+    <Folder Include="Schema Objects\" />
+    <Folder Include="Schema Objects\Schemas\" />
+    <Folder Include="Schema Objects\Schemas\idvl" />
+    <Folder Include="Schema Objects\Schemas\idvl\Programmability" />
+    <Folder Include="Schema Objects\Schemas\idvl\Programmability\Defaults" />
+    <Folder Include="Schema Objects\Schemas\idvl\Programmability\Functions" />
+    <Folder Include="Schema Objects\Schemas\idvl\Programmability\Rules" />
+    <Folder Include="Schema Objects\Schemas\idvl\Programmability\Stored Procedures" />
+    <Folder Include="Schema Objects\Schemas\idvl\Programmability\Types" />
+    <Folder Include="Schema Objects\Schemas\idvl\Programmability\Types\User Defined Data Types" />
+    <Folder Include="Schema Objects\Schemas\idvl\Programmability\Types\User Defined Types CLR" />
+    <Folder Include="Schema Objects\Schemas\idvl\Programmability\Types\User Defined Table Types" />
+    <Folder Include="Schema Objects\Schemas\idvl\Programmability\Types\XML Schema Collections" />
+    <Folder Include="Schema Objects\Schemas\idvl\Service Broker" />
+    <Folder Include="Schema Objects\Schemas\idvl\Service Broker\Queues" />
+    <Folder Include="Schema Objects\Schemas\idvl\Synonyms" />
+    <Folder Include="Schema Objects\Schemas\idvl\Tables" />
+    <Folder Include="Schema Objects\Schemas\idvl\Tables\Constraints" />
+    <Folder Include="Schema Objects\Schemas\idvl\Tables\Indexes" />
+    <Folder Include="Schema Objects\Schemas\idvl\Tables\Keys" />
+    <Folder Include="Schema Objects\Schemas\idvl\Tables\Triggers" />
+    <Folder Include="Schema Objects\Schemas\idvl\Tables\Statistics" />
+    <Folder Include="Schema Objects\Schemas\idvl\Views" />
+    <Folder Include="Schema Objects\Schemas\idvl\Views\Indexes" />
+    <Folder Include="Schema Objects\Schemas\idvl\Views\Triggers" />
+    <Folder Include="Schema Objects\Schemas\idvl\Views\Statistics" />
+    <Folder Include="Schema Objects\Database Level Objects\" />
+    <Folder Include="Schema Objects\Database Level Objects\Assemblies\" />
+    <Folder Include="Schema Objects\Database Level Objects\Database Triggers\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Schemas\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Users\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Certificates\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Asymmetric Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Master Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Signatures\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Symmetric Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Database Encryption Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Database Audit Specification\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Application Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Database Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Broker Priorities\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Contracts\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Event Notifications\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Message Types\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Remote Service Binding\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Routes\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Services\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Stoplists\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Filegroups\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Files\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Catalogs\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Functions\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Schemes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PropertiesFile Include="Properties\Database.sqlsettings">
+    </PropertiesFile>
+    <PropertiesFile Include="Properties\Database.sqldeployment">
+    </PropertiesFile>
+    <PropertiesFile Include="Properties\Database.sqlcmdvars">
+    </PropertiesFile>
+    <Build Include="Properties\Database.sqlpermissions">
+      <ModelBuilderType>Permissions</ModelBuilderType>
+    </Build>
+    <PreDeploy Include="Scripts\Pre-Deployment\Script.PreDeployment.sql">
+      <SubType>Code</SubType>
+    </PreDeploy>
+    <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql">
+      <SubType>Code</SubType>
+    </PostDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Collections.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Libraries.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Movies.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Segments.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\idvl.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Collections.LibraryID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Movies.CollectionID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Movies.LibraryID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Segments.MovieID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\PartitionMembers.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\CollectionExceptions.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Partitions.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Worlds.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\PartitionMembers.CollectionID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\PartitionMembers.PartitionID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\CollectionExceptions.CollectionID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\CollectionExceptions.CollectionID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\AnnotationTypes.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Annotations.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Annotations.AnnotationID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Annotations.LibraryID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Annotations.CollectionID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Annotations.MovieID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Annotations.SegmentID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Annotations.TypeID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\PartitionMembers.CollectionID_PartitionID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Triggers\Movies.OnInsert.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Triggers\Movies.OnUpdate.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Triggers\Segments.OnInsert.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Triggers\Segments.OnUpdate.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Sessions.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Sessions.CollectionID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Movies.SessionID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Sessions.CollectionID_SessionOrder.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Sessions.SessionID.ukey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\AnnotationTypes.Name.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\AnnotationTypes.TypeID.ukey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Collections.CollectionID.ukey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Collections.CollectionName.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Libraries.LibraryName.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Movies.MovieName.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Segments.SegmentName.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Libraries.LibraryID.ukey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Movies.MovieID.ukey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Segments.SegmentID.ukey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Worlds.WorldID.ukey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Partitions.PartitionID.ukey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Worlds.Name.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Partitions.Name.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Partitions.WorldID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\GeoEntities.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\GeoInstances.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\GeoEntities.Uri.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\GeoEntities.EntityID.ukey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\GeoInstances.SegmentID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\GeoInstances.EntityID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\GeoInstances.EntityID_SegmentID_FieldID_Offset.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\TaskStates.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Triggers\Tasks.OnInsertOrUpdate.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Semaphores.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Semaphores.SegmentID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Semaphores.SegmentID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\Semaphores_PID_Hostname.ukey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Triggers\Semaphores.OnInsert.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\TaskStates.SegmentID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\TaskStates.SegmentID_Name.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\RelatedImages.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\ImageInstances.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\RelatedImages.ImageName.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\RelatedImages.ImageID.ukey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\ImageInstances.Sessions_CollectionID_SessionOrder.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\ImageInstances.SegmentID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\idvl\Tables\Keys\ImageInstances.ImageID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+  </ItemGroup>
+</Project>

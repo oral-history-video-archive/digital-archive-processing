@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AllowFrameCountInTimeCode>0</AllowFrameCountInTimeCode>
+  <WorldsPartitionsXMLFilename>NovakInterviewsWorldsParts.xml</WorldsPartitionsXMLFilename>
+  <PortraitPath>\\dvl-vault\Projects\JohnNovak_DVL_Detroit_MI\CollectionImage</PortraitPath>
+  <VideoPath>\\dvl-vault\Projects\JohnNovak_DVL_Detroit_MI\Video</VideoPath>
+  <!-- For this interview set, do not allow story segments shorter than 5 seconds or longer than 900 seconds -->
+  <MinLegalSegmentLengthInSecs>5</MinLegalSegmentLengthInSecs>
+  <MaxLegalSegmentLengthInSecs>900</MaxLegalSegmentLengthInSecs>
+</ConfigSettings>

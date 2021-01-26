@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Settings" nillable="true" type="Settings" />
+  <xs:complexType name="Settings">
+    <xs:all>
+      <xs:element minOccurs="1" maxOccurs="1" name="ConnectionString" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BuildPath" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Email" type="EmailSettings" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ExternalTools" type="ExternalToolSettings" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AlignmentFormatter" type="AlignmentFormatterSettings" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CaptioningTask" type="CaptioningTaskSettings" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EntityResolutionTask" type="EntityResolutionTaskSettings" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TranscodingTask" type="TranscodingTaskSettings" />      
+      <xs:element minOccurs="1" maxOccurs="1" name="Processing" type="AzureSettings" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Production" type="AzureSettings" />
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="EmailSettings">
+    <xs:all>
+      <xs:element minOccurs="1" maxOccurs="1" name="SenderAddress" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Recipients" type="ArrayOfString" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SendGridApiKey" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MessageLevel" type="EmailMessageLevel" />
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfString">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="EmailMessageLevel">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="All" />
+      <xs:enumeration value="ErrorsOnly" />
+      <xs:enumeration value="None" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ExternalToolSettings">
+    <xs:all>
+      <xs:element minOccurs="1" maxOccurs="1" name="PowerShellPath" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FFmpegPath" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SpacyPath" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="JavaPath" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SNERPath" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FirebaseURL" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="AlignmentFormatterSettings">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="MaxUnalignedTrailingWordsAllowed" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CaptioningTaskSettings">
+    <xs:all>
+      <xs:element minOccurs="1" maxOccurs="1" name="Speaker1ToSpeaker2CharRatio" type="xs:double" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MaxCueLength" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TargetLength" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MinCueDuration" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MaxCueDuration" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TargetDuration" type="xs:double" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MaxCueLineCount" type="xs:int" />
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="EntityResolutionTaskSettings">
+    <xs:all>
+      <xs:element minOccurs="1" maxOccurs="1" name="DataPath" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="TranscodingTaskSettings">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="MaximumAllowableDeltaMS" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ResolutionMappings" type="ArrayOfResolutionMapping" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfResolutionMapping">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResolutionMapping" nillable="true" type="ResolutionMapping" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResolutionMapping">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Source" type="Resolution" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Target" type="Resolution" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Resolution">
+    <xs:attribute name="Width" type="xs:int" use="required" />
+    <xs:attribute name="Height" type="xs:int" use="required" />
+  </xs:complexType>
+  <xs:complexType name="AzureSettings">
+    <xs:all>
+      <xs:element minOccurs="1" maxOccurs="1" name="AzureSearchServiceName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AzureSearchApiKey" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AzureStorageAccountName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AzureStorageAccountKey" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BiographyDetailsUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AutoPublish" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AutoPublishTagImport" nillable="true" type="xs:boolean" />
+    </xs:all>
+  </xs:complexType>
+</xs:schema>
