@@ -5,7 +5,7 @@ The Stanford Named Entity Recognizer (NER) is used to detect named entities with
 ## Install Java
 
 * Download a zip archive containing a pre-built Java 8 binary from https://adoptopenjdk.net/
-  * At the time of this writing it was `OpenJDK8U-jre_x64_windows_hotspot_8u242b08.zip`
+  * `OpenJDK8U-jre_x64_windows_hotspot_8u242b08.zip` at the time of this writing.
 * Extract `OpenJDK8U-jre_x64_windows_hotspot_8u242b08.zip` to `C:\DigitalArchive\tools\java`
 * The final folder structure should look like:
 
