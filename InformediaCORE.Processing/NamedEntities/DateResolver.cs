@@ -18,6 +18,10 @@ using System.Linq;
  * care about spaCy. Because of this, date processing occurs earlier in the pipeline and maintains it's 
  * own spaCy parsing logic instead of sharing the "pass 3" combined results used by the remainder of 
  * the resolvers. 
+ * 
+ * UPDATES:
+ * CHRISTEL, 2021/09/23: Via IsNumberOrAnyQuoteAtOffset, do not consider 'xx" with trailing double quote 
+ * as a year (e.g., "I am 5'11" tall..." no longer becomes a possible date '11 interpreted as 1911).
  */
 
 namespace InformediaCORE.Processing.NamedEntities
@@ -333,10 +337,11 @@ namespace InformediaCORE.Processing.NamedEntities
                 if (!foundYear)
                 {
                     // Second pattern to check: 'xx or xx followed by a qualifying yyxx with xx in range [00, 99].
-                    // NOTE: do not consider 'xx' with trailing quote as a year (e.g., "I was told '73' ..." no longer refers to 1973).
+                    // NOTE: do not consider 'xx' with trailing single quote as a year (e.g., "I was told '73' ..." no longer refers to 1973).
+                    // NOTE: do not consider 'xx" with trailing double quote as a year (e.g., "I am 5'11" tall..." no longer refers to 1911).
                     if (workString.Substring(0, 1) == "'" && int.TryParse(workString.Substring(1, 2), out yearValue) &&
                         yearValue >= 0 && yearValue <= 99 &&
-                        IsNumberAtOffset(workString, 1) && IsNumberAtOffset(workString, 2) && !IsNumberOrQuoteAtOffset(workString, 3))
+                        IsNumberAtOffset(workString, 1) && IsNumberAtOffset(workString, 2) && !IsNumberOrAnyQuoteAtOffset(workString, 3))
                     {
                         candidateYearPiece = workString.Substring(1, 2);
                         startIndex = 3;
@@ -494,10 +499,10 @@ namespace InformediaCORE.Processing.NamedEntities
                         if (workStr.StartsWith("in ") || workStr.StartsWith("at ") || workStr.StartsWith("from "))
                             giveUpOnAddress = true;
                         else if (workStr.StartsWith("[") &&
-                            ((workStr.Length >= 6 && IsNumberOrQuoteAtOffset(workStr, 1) && IsNumberOrQuoteAtOffset(workStr, 2) &&
-                            IsNumberOrQuoteAtOffset(workStr, 3) && IsNumberOrQuoteAtOffset(workStr, 4) && workStr[5] == ']') ||
-                            (workStr.Length >= 7 && IsNumberOrQuoteAtOffset(workStr, 1) && IsNumberOrQuoteAtOffset(workStr, 2) &&
-                            IsNumberOrQuoteAtOffset(workStr, 3) && workStr[4] == '0' && workStr[5] == 's' && workStr[6] == ']')))
+                            ((workStr.Length >= 6 && IsNumberAtOffset(workStr, 1) && IsNumberAtOffset(workStr, 2) &&
+                            IsNumberAtOffset(workStr, 3) && IsNumberAtOffset(workStr, 4) && workStr[5] == ']') ||
+                            (workStr.Length >= 7 && IsNumberAtOffset(workStr, 1) && IsNumberAtOffset(workStr, 2) &&
+                            IsNumberAtOffset(workStr, 3) && workStr[4] == '0' && workStr[5] == 's' && workStr[6] == ']')))
                             giveUpOnAddress = true; // if we have # [dddd] or # [ddd0s] with d a numerical digit, then give up on parsing this as address,
                                                     // e.g., "'87 [1987] well Lane Tech" should parse as a 1987 date reference
                     }
@@ -596,11 +601,11 @@ namespace InformediaCORE.Processing.NamedEntities
                     foundIndex <= workingStringLength - 3)
                 {
                     if (workString[foundIndex] == '\'')
-                    { // 'xx and 'xxs processing with dismissal of 'xx' if found
+                    { // 'xx and 'xxs processing with dismissal of 'xx' as well as 'xx" (which occurs in dimensions like height of 5'10" in transcripts) if found
                         if (int.TryParse(workString.Substring(foundIndex + 1, 2), out yearValue) &&
                             yearValue >= 0 && yearValue <= 99 &&
                             IsNumberAtOffset(workString, foundIndex + 1) && IsNumberAtOffset(workString, foundIndex + 2) &&
-                            !IsNumberOrQuoteAtOffset(workString, foundIndex + 3))
+                            !IsNumberOrAnyQuoteAtOffset(workString, foundIndex + 3))
                         {
                             string candidateYearPiece = workString.Substring(foundIndex + 1, 2);
                             // Found the pattern of 'xx.  Now see if it gets qualified later in the same string by having it 
@@ -712,9 +717,25 @@ namespace InformediaCORE.Processing.NamedEntities
             bool isNumberOrQuote = false;
 
             if (givenString.Length > givenOffset && (givenString[givenOffset] == '\'' || Char.IsNumber(givenString[givenOffset])))
-                isNumberOrQuote = true; // the given offset is a number
+                isNumberOrQuote = true; // the given offset is a number or single quote
 
             return isNumberOrQuote;
+        }
+
+        /// <summary>
+        /// If string ends before given offset or the character there is not a number or ' or ", return false, else return true
+        /// </summary>
+        /// <param name="givenString">given string</param>
+        /// <param name="givenOffset">given offset</param>
+        /// <returns>true if number or single quote or double quote at given offset, false otherwise</returns>
+        static bool IsNumberOrAnyQuoteAtOffset(string givenString, int givenOffset)
+        {
+            bool isNumberOrAnyQuote = false;
+
+            if (givenString.Length > givenOffset && (givenString[givenOffset] == '\'' || givenString[givenOffset] == '"' || Char.IsNumber(givenString[givenOffset])))
+                isNumberOrAnyQuote = true; // the given offset is a number or single quote or double quote
+
+            return isNumberOrAnyQuote;
         }
 
         static string TypeForSpaCyType(string givenText)
